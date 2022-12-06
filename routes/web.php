@@ -20,12 +20,19 @@ use App\Http\Controllers\ContactFormController;
 
 
 
-Route::prefix('contact')
+Route::prefix('/contacts')
     ->middleware(['auth'])
     ->controller(ContactFormController::class)
     ->group(function () {
-        Route::get('/', 'index');
-        Route::get('/edo', 'create');
+        // show
+        Route::get('/', 'index')->name('index');
+        // route:get('url', controllerの関数)->name('route指定時の名前')
+
+        // フォームで飛ばすページ
+        Route::post('/', 'store')->name('store');
+
+        // formがあるページ
+        Route::get('/create', 'create')->name('create');
     });
 
 // Route::get('contact', [ContactFormController::class, 'index']);
@@ -36,9 +43,9 @@ Route::get('/', function () {
 
 Route::get('/test', function () {
     return view('test.test');
-});
+})->name('test');
 
-Route::get('/test/controll', [TestController::class, 'index']);
+Route::get('/test/controll', [TestController::class, 'index'])->name('testWithRoute');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

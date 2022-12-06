@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\ContactForm;
+use App\Models\Test;
+
 class ContactFormController extends Controller
 {
     /**
@@ -23,7 +26,7 @@ class ContactFormController extends Controller
      */
     public function create()
     {
-        return view('contacts.index');
+        return view('contacts.create');
     }
 
     /**
@@ -34,7 +37,23 @@ class ContactFormController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request);
+        // return view('contacts.create');
+
+        // Test::create([
+        //     'text' => $request->formAtt,
+        // ]);
+        // モデル側の$fillableという現存変数に
+        // 配列としてデータベースの列と同じ名前のキーを入れる必要がある
+        // 結果この時点でのキーはデータベースの列と同じ名前になる
+
+        // $test = new Test;
+        // $test->text = $request->formAtt;
+        // $test->save();
+
+
+        $vals = Test::all();
+        return view('test.test', compact("vals"));
     }
 
     /**
