@@ -9,15 +9,28 @@
 </head>
 
 <body>
+
     <p>test index</p>
     <p>
-        @if (isset($vals))
+        {{-- @if (isset($vals))
             @foreach ($vals as $val)
                 <p>{{ $val->id }}:{{ $val->text }}</p>
+                <div>
+                    <p>Id:{{ $val->id }}</p>
+                    <p>Name:{{ $val->name }}</p>
+                    <p>Email:{{ $val->email }}</p>
+                    <p>Ms:{{ $val->text }}</p>
+                </div>
             @endforeach
         @else
             <p>No Controller</p>
-        @endif
+        @endif --}}
+
+        @foreach ($vals as $val)
+            <p>
+                <a href="">{{ $val->name }} - {{ $val->created_at }}</a>
+            </p>
+        @endforeach
     </p>
 </body>
 

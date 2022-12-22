@@ -16,6 +16,37 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `contact_forms`
+--
+
+DROP TABLE IF EXISTS `contact_forms`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `contact_forms` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `text` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `contact_forms`
+--
+
+LOCK TABLES `contact_forms` WRITE;
+/*!40000 ALTER TABLE `contact_forms` DISABLE KEYS */;
+INSERT INTO `contact_forms` VALUES (1,'test','test@gmail.com','test','2022-12-13 09:52:12','2022-12-13 09:52:12');
+INSERT INTO `contact_forms` VALUES (2,'test','hello@gmail.com','this is message','2022-12-13 09:57:24','2022-12-13 09:57:24');
+INSERT INTO `contact_forms` VALUES (3,'test','sample@gmial.com','hello world','2022-12-17 04:45:41','2022-12-17 04:45:41');
+INSERT INTO `contact_forms` VALUES (4,'shagwa','shagwa@gmial.com','hello shagawa','2022-12-17 04:49:42','2022-12-17 04:49:42');
+/*!40000 ALTER TABLE `contact_forms` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `failed_jobs`
 --
 
@@ -56,7 +87,7 @@ CREATE TABLE `migrations` (
   `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -71,6 +102,7 @@ INSERT INTO `migrations` VALUES (3,'2019_08_19_000000_create_failed_jobs_table',
 INSERT INTO `migrations` VALUES (4,'2019_12_14_000001_create_personal_access_tokens_table',1);
 INSERT INTO `migrations` VALUES (5,'2022_11_05_003648_create_tests_table',2);
 INSERT INTO `migrations` VALUES (6,'2022_11_05_004112_create_tests_tables',2);
+INSERT INTO `migrations` VALUES (7,'2022_11_30_014421_create_contact_forms_table',3);
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -144,7 +176,7 @@ CREATE TABLE `tests` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -155,6 +187,19 @@ LOCK TABLES `tests` WRITE;
 /*!40000 ALTER TABLE `tests` DISABLE KEYS */;
 INSERT INTO `tests` VALUES (1,'aaa','2022-11-05 07:43:52','2022-11-05 07:43:52');
 INSERT INTO `tests` VALUES (2,'bbb','2022-11-05 07:44:09','2022-11-05 07:44:09');
+INSERT INTO `tests` VALUES (3,'aaa','2022-12-03 09:23:39','2022-12-03 09:23:39');
+INSERT INTO `tests` VALUES (4,'tests','2022-12-03 09:37:46','2022-12-03 09:37:46');
+INSERT INTO `tests` VALUES (5,'adfasfsbafba','2022-12-03 09:37:53','2022-12-03 09:37:53');
+INSERT INTO `tests` VALUES (6,'afdasbbdf','2022-12-03 09:39:53','2022-12-03 09:39:53');
+INSERT INTO `tests` VALUES (7,'fadasgqdg','2022-12-03 09:40:48','2022-12-03 09:40:48');
+INSERT INTO `tests` VALUES (8,'aa','2022-12-03 09:45:16','2022-12-03 09:45:16');
+INSERT INTO `tests` VALUES (9,'あっふぁｆ','2022-12-03 09:45:23','2022-12-03 09:45:23');
+INSERT INTO `tests` VALUES (10,'aaaa','2022-12-07 09:53:24','2022-12-07 09:53:24');
+INSERT INTO `tests` VALUES (11,'koncha','2022-12-07 09:55:07','2022-12-07 09:55:07');
+INSERT INTO `tests` VALUES (12,'holy','2022-12-07 09:58:11','2022-12-07 09:58:11');
+INSERT INTO `tests` VALUES (13,'holy','2022-12-07 09:58:32','2022-12-07 09:58:32');
+INSERT INTO `tests` VALUES (14,'holy','2022-12-07 09:58:38','2022-12-07 09:58:38');
+INSERT INTO `tests` VALUES (15,'shin','2022-12-07 09:59:43','2022-12-07 09:59:43');
 /*!40000 ALTER TABLE `tests` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -223,4 +268,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-17 10:41:48
+-- Dump completed on 2022-12-21  9:33:03

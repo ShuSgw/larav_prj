@@ -33,6 +33,11 @@ Route::prefix('/contacts')
 
         // formがあるページ
         Route::get('/create', 'create')->name('create');
+
+        // それぞれのページ
+        Route::get('/{id}', 'show')->name('list');
+
+        Route::get('edit/{id}', 'edit')->name('modify');
     });
 
 // Route::get('contact', [ContactFormController::class, 'index']);

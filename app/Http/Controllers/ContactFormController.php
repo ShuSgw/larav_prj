@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Models\ContactForm;
 use App\Models\Test;
+use Mockery\Matcher\Contains;
 
 class ContactFormController extends Controller
 {
@@ -26,7 +27,9 @@ class ContactFormController extends Controller
      */
     public function create()
     {
-        return view('contacts.create');
+        // contact form showing
+        $vals = ContactForm::all();
+        return view('contacts.create', compact("vals"));
     }
 
     /**
@@ -47,13 +50,40 @@ class ContactFormController extends Controller
         // 配列としてデータベースの列と同じ名前のキーを入れる必要がある
         // 結果この時点でのキーはデータベースの列と同じ名前になる
 
+
+        // tinkerベースで
         // $test = new Test;
         // $test->text = $request->formAtt;
         // $test->save();
 
+        // モデルのcreate関数ベース
+        // Test::create([
+        //     'text' => $request->formAtt,
+        // ]);
 
-        $vals = Test::all();
-        return view('test.test', compact("vals"));
+        // $table->string('name');
+        // $table->string('email');
+        // $table->string('text');
+
+        // valsに配列を入れて
+        // $vals = Test::all();
+        // return view('test.test', compact("vals"));
+
+
+        ContactForm::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'text' => $request->text,
+        ]);
+
+        // dd($request);
+
+        // contact form showing
+        $vals = ContactForm::select('name', 'created_at')->get();
+        // return to_route('contacts.create', compact('vals'));
+
+        // return to_route('test.test', compact("vals"));
+        return to_route('create', compact('vals'));
     }
 
     /**
@@ -64,7 +94,10 @@ class ContactFormController extends Controller
      */
     public function show($id)
     {
-        //
+
+        $ms = ContactForm::find($id);
+
+        return view('contacts.show', compact('ms'));
     }
 
     /**
@@ -75,7 +108,9 @@ class ContactFormController extends Controller
      */
     public function edit($id)
     {
-        //
+        $ms = ContactForm::find($id);
+
+        return view('contacts.modify', compact('ms'));
     }
 
     /**

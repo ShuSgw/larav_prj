@@ -21,7 +21,7 @@
 
                         <input type="text" id="name" name="name" autocomplete="off" placeholder="name">
                         <input type="email" id="email" name='email' autocomplete="off" placeholder="email">
-                        <input type="text" id="message" name="text" autocomplete="off" placeholder="ms">
+                        <input type="text" id="text" name="text" autocomplete="off" placeholder="ms">
                         <button>SEND</button>
                     </form>
 
@@ -31,6 +31,29 @@
                     <li>
                         <a href="{{ route('store') }}" class="">test</a>
                     </li>
+
+                    <h1>data</h1>
+                    @if (isset($vals))
+                        @foreach ($vals as $val)
+                            <a href={{ route('list', ['id' => $val->id]) }}>
+                                <div
+                                    class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+
+                                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                        {{ $val->id }}, {{ $val->name }}
+                                    </h5>
+                                    <p class="font-normal text-gray-700 dark:text-gray-400">
+                                        {{ $val->email }}
+                                    </p>
+                                    <p class="font-normal text-gray-700 dark:text-gray-400">
+                                        MS: {{ $val->text }}
+                                    </p>
+                                </div>
+                            </a>
+                        @endforeach
+                    @else
+                        <p>No Controller</p>
+                    @endif
                 </div>
             </div>
         </div>
