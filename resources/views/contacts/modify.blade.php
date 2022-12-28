@@ -11,11 +11,18 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     show
                 </div>
-                <div class="p-6 bg-white border-b border-gray-200">
-                    <ul>
-                        {{ $ms->text }}
-                    </ul>
-                </div>
+
+                <form method="post" action={{ route('findoverwrite', ['id' => $ms->id]) }}>
+                    @csrf
+                    <input value="{{ $ms->name }}" type="text" id="name" name="name" autocomplete="off"
+                        placeholder="name">
+                    <input value="{{ $ms->email }}" type="email" id="email" name='email' autocomplete="off"
+                        placeholder="email">
+                    <input value="{{ $ms->text }}" type="text" id="text" name="text" autocomplete="off"
+                        placeholder="ms">
+                    <button>SEND</button>
+                </form>
+
                 {{-- <form method="post" action="{{ route('modify', ['id' => $ms->id]) }}">
                     @csrf
 

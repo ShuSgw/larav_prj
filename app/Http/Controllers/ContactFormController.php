@@ -123,6 +123,7 @@ class ContactFormController extends Controller
     public function update(Request $request, $id)
     {
         //
+        return to_route('list');
     }
 
     /**

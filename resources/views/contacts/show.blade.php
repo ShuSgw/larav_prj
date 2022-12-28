@@ -17,6 +17,10 @@
                         <li>{{ $ms->email }}</li>
                         <li>{{ $ms->text }}</li>
                     </ul>
+                    <a class='underline' href={{ route('modify', ['id' => $ms->id]) }}>
+                        edit
+                    </a>
+
                 </div>
                 {{-- <form method="post" action="{{ route('modify', ['id' => $ms->id]) }}">
                     @csrf
